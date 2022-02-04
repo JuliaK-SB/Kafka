@@ -12,7 +12,7 @@
         <con:operationName>Publish</con:operationName>
         <con:channelName>quickstart-events</con:channelName>
         <con:serviceName>Kafka</con:serviceName>
-        <con:endpoint>localhost:9092</con:endpoint>
+        <con:endpoint>localhost:9093</con:endpoint>
         <con:connectionProperties/>
         <con:schemaRegistry/>
         <con:messageType>JSON</con:messageType>
