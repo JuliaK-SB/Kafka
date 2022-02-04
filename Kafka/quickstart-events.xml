@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:channel name="quickstart-events" id="4f66edf4-fa50-4ad6-8067-65ebb71a8b98" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4f66edf4-fa50-4ad6-8067-65ebb71a8b98fileName">quickstart-events</con:setting>
+  </con:settings>
+  <con:subscribeOperation name="Subscribe" id="5a2e790f-a6a6-455c-bef3-a4e65a8d450c">
+    <con:settings/>
+  </con:subscribeOperation>
+  <con:publishOperation name="Publish" id="fd128e35-e547-474e-94d5-42fd0d16db2e">
+    <con:settings/>
+  </con:publishOperation>
+</con:channel>

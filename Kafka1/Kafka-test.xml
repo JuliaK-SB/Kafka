@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="338c1084-d726-49ae-b83b-2c34518c7f21" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Kafka test" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="338c1084-d726-49ae-b83b-2c34518c7f21fileName">Kafka-test</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="multiConfigureTestStep" name="Publish to kafka" id="5806dd4d-3e6b-4513-ad67-c2c25162b240">
+    <con:settings/>
+    <con:config activeStep="kafkaPublishTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:kafkaPublishStep>
+        <con:operationId>fd128e35-e547-474e-94d5-42fd0d16db2e</con:operationId>
+        <con:operationName>Publish</con:operationName>
+        <con:channelName>quickstart-events</con:channelName>
+        <con:serviceName>Kafka</con:serviceName>
+        <con:endpoint>localhost:9092</con:endpoint>
+        <con:connectionProperties/>
+        <con:schemaRegistry/>
+        <con:messageType>JSON</con:messageType>
+        <con:message>{
+    "book":[
+        {
+            "id":"444",
+            "language":"C",
+            "edition":"First",
+            "author":"Dennis Ritchie "
+        },
+        {
+            "id":"555",
+            "language":"C++",
+            "edition":"second",
+            "author":" Bjarne Stroustrup "
+        }
+    ]
+    }</con:message>
+        <con:parameters/>
+      </con:kafkaPublishStep>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="multiConfigureTestStep" name="Subscribe to kafka" id="5a235820-f708-4be8-a677-4966bc8249b1">
+    <con:settings/>
+    <con:config activeStep="kafkaSubscribeTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:kafkaSubscribeStep>
+        <con:operationId>5a2e790f-a6a6-455c-bef3-a4e65a8d450c</con:operationId>
+        <con:operationName>Subscribe</con:operationName>
+        <con:channelName>quickstart-events</con:channelName>
+        <con:serviceName>Kafka</con:serviceName>
+        <con:endpoint>localhost:9092</con:endpoint>
+        <con:connectionProperties/>
+        <con:schemaRegistry>
+          <con:url/>
+          <con:authProfile>No Authorization</con:authProfile>
+        </con:schemaRegistry>
+        <con:messageType>JSON</con:messageType>
+        <con:closeConditionType>ANY_CONDITION</con:closeConditionType>
+        <con:maxIdleTime>6</con:maxIdleTime>
+        <con:maxMessagesReceived>50</con:maxMessagesReceived>
+        <con:maxRunTime>6</con:maxRunTime>
+        <con:assertion type="AssertionGroup" id="6a1e3dd1-3562-4472-8764-6fc793dc4326" name="Content">
+          <con:configuration xsi:type="con:AssertionGroup">
+            <con:selectedAssertions type="JsonPath Match" id="fb67c628-d606-4b5e-b344-5e5c30b190ff" name="JSONPath Match">
+              <con:configuration>
+                <path>$['book'][0]['author']</path>
+                <content>"Dennis Ritchie "</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:selectedAssertions>
+            <con:selectedAssertions type="JsonPath Match" id="ea8c7fd9-85f8-4299-bedc-0297211a7917" name="JSONPath Match 2">
+              <con:configuration>
+                <path>$['book'][1]['author']</path>
+                <content>" Bjarne Stroustrup "</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:selectedAssertions>
+            <con:groupLogic>AND</con:groupLogic>
+          </con:configuration>
+        </con:assertion>
+      </con:kafkaSubscribeStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>5806dd4d-3e6b-4513-ad67-c2c25162b240</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

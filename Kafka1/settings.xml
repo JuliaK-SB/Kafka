@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="3605cca5-2933-4426-8b80-33fb8f5d137e" name="Kafka" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3605cca5-2933-4426-8b80-33fb8f5d137efileName">Kafka1</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:setupScript/>
+  <con:reportParameters/>
+</con:testSuite>
